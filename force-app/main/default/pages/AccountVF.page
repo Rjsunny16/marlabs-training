@@ -1,0 +1,36 @@
+<apex:page controller="AccountVFController">
+  <apex:form >
+    <apex:pageBlock title="Account Search" mode="edit">
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!search}" value="Search"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Search Account by Name">
+            Enter Account Search Term: <apex:inputText value="{!acctSearchParm}" id="acctSearchParmField" required="true"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Account Information" columns="2" rendered="{!acct != null}">
+            <apex:outputField value="{!acct.Name}"/>
+            <apex:outputText value="{!acct.Id}"/>
+            <apex:pageBlockSection title="Contact Information" columns="2" rendered="{!cont != null}">
+                   <apex:outputField value="{!cont.Name}"/>
+                   <apex:outputText value="{!cont.Id}"/>
+                   <apex:outputText value="{!cont.Phone}"/>
+                   <apex:outputText value="{!cont.Email}"/>
+            </apex:pageBlockSection>
+            <apex:commandButton action="{!getContact}" value="show Contacts"/>
+                 <apex:pageBlockTable value="{!Contacts}" var="item">
+                    <apex:column value="{!item.name}"/>
+                    <apex:column value="{!item.email}"/>
+                    <apex:column value="{!item.phone}"/>
+                    <apex:column value="{!item.title}"/>
+
+                </apex:pageBlockTable>
+            
+            
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Error Messages" rendered="{!errorMessage != null}">
+            Search Term: {!acctSearchParm}
+            <br/>Error Message: {!errorMessage}
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

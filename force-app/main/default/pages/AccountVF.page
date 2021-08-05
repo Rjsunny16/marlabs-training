@@ -23,7 +23,7 @@
                     <apex:column value="{!item.phone}"/>
                     <apex:column value="{!item.title}"/>
 
-                </apex:pageBlockTable>
+                 </apex:pageBlockTable>
             
             
         </apex:pageBlockSection>

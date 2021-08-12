@@ -1,0 +1,14 @@
+<template>
+    <lightning-button label="Get Contacts" onclick={getContactsFromSalesforce}>
+    </lightning-button>
+    <template if:true={wiredContacts.data}>
+        <template for:each={wiredContacts.data} for:item="contact">
+            <li key={contact.Id}>
+                {contact.Name}, {contact.Email}
+            </li>
+        </template>
+    </template>
+    <template if:true={wiredContacts.error}>
+        {wiredContacts.error}
+    </template>
+</template>

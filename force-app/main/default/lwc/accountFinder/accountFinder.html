@@ -2,8 +2,9 @@
     <lightning-card>
         <lightning-input
             type="number"
-            label="Number of Employees"
-            value={numberOfEmployees}
+            label="Annual Revenue"
+            formatter= "currency"
+            value={annualRevenue}
             onchange={handleChange}>
         </lightning-input>
         <lightning-button
@@ -16,4 +17,4 @@
             </template>
         </template> 
     </lightning-card>
-  </template>
+</template>

@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-tile label="Bike Rating" type="media">
+                <div class="rate">
+                    <div class="rate">
+                        <input type="radio" id="star15" name="Bike" value="5" onchange={rating} />
+                        <label for="star15" title="text">5 stars</label>
+                        <input type="radio" id="star14" name="Bike" value="4" onchange={rating} />
+                        <label for="star14" title="text">4 stars</label>
+                        <input type="radio" id="star13" name="Bike" value="3" onchange={rating} />
+                        <label for="star13" title="text">3 stars</label>
+                        <input type="radio" id="star12" name="Bike" value="2" onchange={rating} />
+                        <label for="star12" title="text">2 stars</label>
+                        <input type="radio" id="star11" name="Bike" value="1" onchange={rating} />
+                        <label for="star11" title="text">1 star</label>
+                    </div>
+                </div>
+            </lightning-tile>
+            <lightning-button label="Submit" onclick={getvalues}> </lightning-button>
+        </div>
+    </div>
+    
+</template>

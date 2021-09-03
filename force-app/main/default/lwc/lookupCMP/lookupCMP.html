@@ -1,0 +1,62 @@
+<template>
+    <div class="slds-m-bottom_small slds-m-top_x-large">
+        <lightning-card>
+            <div class="slds-align_absolute-center">
+                <lightning-layout>
+                    <lightning-layout-item class="slds-p-left_small">
+                        <lightning-icon icon-name="utility:salesforce1">
+                        </lightning-icon>
+                    </lightning-layout-item>
+                    <lightning-layout-item>
+                        <p class="slds-p-horizontal_small">
+                            <b>Lookup to Account</b>
+                        </p>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </lightning-card>
+    </div>
+
+    <div class="slds-align_absolute-center">
+        <lightning-card>
+            <lightning-layout>
+                <lightning-layout-item class="slds-m-around_small">
+                    <lightning-input value={nameVar}
+                                        variant="label-hidden"
+                                        type="text" 
+                                        placeholder="Account Name"
+                                        autocomplete="none"
+                                        data-field="accountLookup"
+                                        onchange={handleAccNameChange}>
+                    </lightning-input>
+                    <template for:each={accounts} for:item="account" 
+                              if:true={isAccountFound}>
+                        <div key={account.value} id={account.value}
+                            onclick={handleAccountSelection}>
+                            <h3 title={account.value}
+                                class="slds-border_bottom">
+                                    {account.label}
+                            </h3>
+                        </div>
+                    </template>
+                </lightning-layout-item> 
+                
+                <lightning-layout-item class="slds-m-around_small"
+                                       if:true={isAccountSelected}>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><b>Selected Account Name : &nbsp;&nbsp;</b></td>
+                                <td>{accountName}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Selected Account Id : &nbsp;&nbsp;</b></td>
+                                <td>{accountId}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+    </div>
+</template>

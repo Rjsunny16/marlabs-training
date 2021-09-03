@@ -1,6 +1,6 @@
 public class MyAccountQueueable implements Queueable {
     public List<Account> accList ; 
-    public AccountQueueableExample(List<Account> accList){
+    public MyAccountQueueable(List<Account> accList){
         this.accList = accList ;  
     }
     public void execute(QueueableContext context) {

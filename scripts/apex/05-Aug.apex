@@ -15,7 +15,7 @@ System.debug('After starting the batch job');
 // Start a Queueable
 /*
 List<Account> accList = [Select Id , Name from Account ];
-ID jobID = System.enqueueJob(new AccountQueueableExample(accList));
+ID jobID = System.enqueueJob(new MyAccountQueueable(accList));
 System.debug('jobID'+jobID);
 */
 
